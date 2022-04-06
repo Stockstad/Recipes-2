@@ -11,5 +11,12 @@ namespace Recipes_2
         public string Name;
         public List<Ingredient> Ingredient = new List<Ingredient>();
 
+        public override string ToString()
+        {
+            return Name;
+        }
+
     }
+
+  
 }

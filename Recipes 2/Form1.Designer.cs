@@ -32,6 +32,8 @@
             this.ShowBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.ChangeLogLabel = new System.Windows.Forms.Label();
+            this.menuBtn = new System.Windows.Forms.Button();
+            this.shopListBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // RecipesList
@@ -78,12 +80,36 @@
     "ecipe handler.\r\n   In this version, you can\r\nexpect to encounter endless \r\nbugs " +
     "and the sorts. Welcome!\r\n";
             // 
+            // menuBtn
+            // 
+            this.menuBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.menuBtn.Location = new System.Drawing.Point(341, 350);
+            this.menuBtn.Name = "menuBtn";
+            this.menuBtn.Size = new System.Drawing.Size(144, 41);
+            this.menuBtn.TabIndex = 4;
+            this.menuBtn.Text = "Menu";
+            this.menuBtn.UseVisualStyleBackColor = true;
+            this.menuBtn.Click += new System.EventHandler(this.menuBtn_Click);
+            // 
+            // shopListBtn
+            // 
+            this.shopListBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.shopListBtn.Location = new System.Drawing.Point(500, 350);
+            this.shopListBtn.Name = "shopListBtn";
+            this.shopListBtn.Size = new System.Drawing.Size(144, 41);
+            this.shopListBtn.TabIndex = 5;
+            this.shopListBtn.Text = "Shopping List";
+            this.shopListBtn.UseVisualStyleBackColor = true;
+            this.shopListBtn.Click += new System.EventHandler(this.shopListBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(880, 414);
+            this.Controls.Add(this.shopListBtn);
+            this.Controls.Add(this.menuBtn);
             this.Controls.Add(this.ChangeLogLabel);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.ShowBtn);
@@ -105,5 +131,7 @@
         private Button ShowBtn;
         private Button AddBtn;
         private Label ChangeLogLabel;
+        private Button menuBtn;
+        private Button shopListBtn;
     }
 }

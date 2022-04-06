@@ -10,10 +10,10 @@ namespace Recipes_2
     internal class Ingredient
     {
         public string Name;
-        public int Quantity;
+        public decimal Quantity;
         public Prop Property;
 
-        public Ingredient(string n, int q, Prop p)
+        public Ingredient(string n, decimal q, Prop p)
         {
             Name = n;
             Quantity = q;

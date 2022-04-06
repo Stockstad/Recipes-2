@@ -25,11 +25,14 @@ namespace Recipes_2
             newRecipe.Name = RecipeNameBox.Text;
             newRecipe.Ingredient = newIngredients;
             File.WriteAllText(Directory.GetCurrentDirectory() + @"\recipes\" + newRecipe.Name + ".json", JsonConvert.SerializeObject(newRecipe));
+            MessageBox.Show("Recipe created successfully.");
+            ProgramManager.recipes.Add(newRecipe);
+            this.Close();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            newIngredients.Add(new Ingredient(IngredientName.Text, (int)Amount.Value, ComboValue()));
+            newIngredients.Add(new Ingredient(IngredientName.Text, Amount.Value, ComboValue()));
             RefreshList();
         }
 
@@ -56,6 +59,11 @@ namespace Recipes_2
                 newIngredients.RemoveAt(AddedList.SelectedIndex);
                 RefreshList();
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     } 
 }

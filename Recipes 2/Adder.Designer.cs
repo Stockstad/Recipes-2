@@ -40,6 +40,7 @@
             this.RemoveBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.RecipeNameBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Amount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,11 +158,25 @@
             this.RecipeNameBox.Size = new System.Drawing.Size(150, 31);
             this.RecipeNameBox.TabIndex = 11;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(294, 319);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(487, 92);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "When adding ingredients, please be consistent with\r\nthe use of the property. Do n" +
+    "ot under any circumstances\r\nuse the same ingredients but different properties ov" +
+    "er \r\nmany recipes.";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // Adder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 414);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.RecipeNameBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.RemoveBtn);
@@ -197,5 +212,6 @@
         private Button RemoveBtn;
         private Label label4;
         private TextBox RecipeNameBox;
+        private Label label5;
     }
 }
