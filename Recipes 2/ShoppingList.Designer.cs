@@ -188,6 +188,8 @@
             this.Controls.Add(this.CreateListBtn);
             this.Controls.Add(this.ShoppingShowList);
             this.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ShoppingList";
             this.Text = "ShoppingList";
             this.Load += new System.EventHandler(this.ShoppingList_Load);

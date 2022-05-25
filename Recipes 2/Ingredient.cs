@@ -20,7 +20,7 @@ namespace Recipes_2
             Property = p;
         }
 
-        public override string ToString()
+        public override string ToString() //Returns the Ingredient and its values as a string.
         {
             return Name + " " + Quantity + " " + Property;
         }

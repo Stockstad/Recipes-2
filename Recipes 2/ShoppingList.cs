@@ -14,11 +14,11 @@ namespace Recipes_2
 {
     public partial class ShoppingList : Form
     {
-        List<Ingredient> shoppingList = new List<Ingredient>();
-        List<Ingredient> finalList = new List<Ingredient>();
-        string password = "GoesLikeClockwork88";
-        string sendTo = string.Empty;
-        string fullList = string.Empty;
+        List<Ingredient> shoppingList = new List<Ingredient>(); //the randomised list of recipes.
+        List<Ingredient> finalList = new List<Ingredient>(); //the list that later gets sorted and queried. 
+        string password = "GoesLikeClockwork88"; //Yes, this is the password. Don't bother stealing it; there's nothing on that account. 
+        string sendTo = string.Empty; //Email to send to.
+        string fullList = string.Empty; //Email text. 
 
 
         public ShoppingList()
@@ -26,7 +26,7 @@ namespace Recipes_2
             InitializeComponent();
         }
 
-        private void CreateListBtn_Click(object sender, EventArgs e)
+        private void CreateListBtn_Click(object sender, EventArgs e) //Creates a preview shopping list and shows it to the user.
         {
             finalList.Clear();
             shoppingList.Clear();
@@ -43,7 +43,7 @@ namespace Recipes_2
                     NeededList.Items.Add(ProgramManager.recipes[i].Name);
                 }
             }
-            catch (System.ArgumentOutOfRangeException) 
+            catch (System.ArgumentOutOfRangeException)  //If the user has too few recipes this error gets thrown.
             {
                 MessageBox.Show("You don't have enough recipes. Please add some more.");
             }
@@ -67,12 +67,12 @@ namespace Recipes_2
                   
         }
 
-        private void BackBtn_Click(object sender, EventArgs e)
+        private void BackBtn_Click(object sender, EventArgs e) //Returns to the menu.
         {
             this.Close();
         }
 
-        private void SendBtn_Click(object sender, EventArgs e)
+        private void SendBtn_Click(object sender, EventArgs e ) //send the email including the recipe. 
         {
             string htmlString = CreateString();
             Email(htmlString); //Pass html string to Email function.  
@@ -80,7 +80,7 @@ namespace Recipes_2
 
         }
 
-        private void Email(string htmlString)
+        private void Email(string htmlString) //Intilalises the email. NOTICE!!! As of 1th of May 2022 this feature will not work.
         {
             try
             {
@@ -108,7 +108,7 @@ namespace Recipes_2
             catch (Exception) { MessageBox.Show("Something went wrong. The mail was not sent. Check your internet connection or restart the program."); }
         }
 
-        private string CreateString()
+        private string CreateString() //Transforms the ShoppingList into a string reday to be sent as an email. 
         {
             fullList += "Your shopping list:\n";
             foreach (var ingredient in shoppingList)

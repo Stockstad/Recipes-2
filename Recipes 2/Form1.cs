@@ -9,7 +9,9 @@ namespace Recipes_2
 {
     public partial class Form1 : Form
     {
-        string[] currentDirectory = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\recipes\", "*.json");
+        Recipe selected;
+        bool isMenu = true;
+        string[] currentDirectory = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\recipes\", "*.json");//Get the older, saved recipe files.
         public Form1()
         {
             InitializeComponent();
@@ -17,21 +19,36 @@ namespace Recipes_2
 
 
 
-        private void ShowBtn_Click(object sender, EventArgs e)
+        private void ShowBtn_Click(object sender, EventArgs e) //Show selected recipe from the list.
         {
-            var selected = ProgramManager.recipes.FirstOrDefault(o => o.Name == RecipesList.SelectedItem);
-            if (selected != null)
+            if (isMenu)
             {
-                RecipesList.Items.Clear();
-                foreach (var ingredient in selected.Ingredient)
+                selected = ProgramManager.recipes.FirstOrDefault(o => o.Name == RecipesList.SelectedItem);
+                if (selected != null)
                 {
-                    RecipesList.Items.Add(ingredient);
+                    isMenu = false;
+                    ShowBtn.Text = "Back";
+                    EditBtn.Show();
+                    RecipesList.Items.Clear();
+                    foreach (var ingredient in selected.Ingredient)
+                    {
+                        RecipesList.Items.Add(ingredient);
+                    }
                 }
+            }
+            else
+            {
+                isMenu = true;
+                ShowBtn.Text = "Show";
+                RecipesList.Items.Clear();
+                RefreshList();
+                EditBtn.Hide();
             }
         }
 
-        private void OnLoad(object sender, EventArgs e)
+        private void OnLoad(object sender, EventArgs e) //Deserialises the .json:s and displays already saved recipes.
         {
+            EditBtn.Hide();
             foreach (string file in currentDirectory)
             {
                 ProgramManager.recipes.Add(JsonConvert.DeserializeObject<Recipe>(File.ReadAllText(file)));
@@ -39,19 +56,18 @@ namespace Recipes_2
             RefreshList();
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
+        private void AddBtn_Click(object sender, EventArgs e) //Takes user to the add page.
         {
             Adder add = new Adder();
             add.ShowDialog();
         }
 
-        private void menuBtn_Click(object sender, EventArgs e)
+        private void menuBtn_Click(object sender, EventArgs e) //Returns the program to its initial state.
         {
-            RecipesList.Items.Clear();
-            RefreshList();
+          
         }
 
-        private void RefreshList()
+        private void RefreshList() //Refreshes the visible list.
         {
             foreach (var rec in ProgramManager.recipes)
             {
@@ -59,10 +75,27 @@ namespace Recipes_2
             }
         }
 
-        private void shopListBtn_Click(object sender, EventArgs e)
+        private void shopListBtn_Click(object sender, EventArgs e) //Takes the user to the ShoppingList window. 
         {
             ShoppingList shop = new ShoppingList();
             shop.ShowDialog();
+        }
+
+        private void ChangeLogLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            
+            if (selected != null)
+            {
+                ProgramManager.EditRecipe(selected);
+            }
+            Editor editor = new();
+            editor.ShowDialog();
+
         }
     }
 

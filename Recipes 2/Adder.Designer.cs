@@ -41,11 +41,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.RecipeNameBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.BackToMenuBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Amount)).BeginInit();
             this.SuspendLayout();
             // 
             // AddedList
             // 
+            this.AddedList.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.AddedList.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.AddedList.FormattingEnabled = true;
             this.AddedList.ItemHeight = 23;
             this.AddedList.Location = new System.Drawing.Point(13, 11);
@@ -56,6 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(13, 282);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 23);
@@ -65,6 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Location = new System.Drawing.Point(13, 317);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 23);
@@ -74,6 +79,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Location = new System.Drawing.Point(13, 349);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 23);
@@ -145,6 +151,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Location = new System.Drawing.Point(566, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 23);
@@ -161,7 +168,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(294, 319);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(487, 92);
@@ -171,11 +178,23 @@
     "er \r\nmany recipes.";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // BackToMenuBtn
+            // 
+            this.BackToMenuBtn.Location = new System.Drawing.Point(700, 93);
+            this.BackToMenuBtn.Name = "BackToMenuBtn";
+            this.BackToMenuBtn.Size = new System.Drawing.Size(112, 34);
+            this.BackToMenuBtn.TabIndex = 13;
+            this.BackToMenuBtn.Text = "Menu";
+            this.BackToMenuBtn.UseVisualStyleBackColor = true;
+            this.BackToMenuBtn.Click += new System.EventHandler(this.BackToMenuBtn_Click);
+            // 
             // Adder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(867, 414);
+            this.Controls.Add(this.BackToMenuBtn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.RecipeNameBox);
             this.Controls.Add(this.label4);
@@ -190,6 +209,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddedList);
             this.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Adder";
             this.Text = "Adder";
             ((System.ComponentModel.ISupportInitialize)(this.Amount)).EndInit();
@@ -213,5 +234,6 @@
         private Label label4;
         private TextBox RecipeNameBox;
         private Label label5;
+        private Button BackToMenuBtn;
     }
 }
